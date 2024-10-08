@@ -18,14 +18,24 @@
 // }
 
 
-void krnl(data_t* a, data_t* b, data_t* c) {
-    #pragma HLS INTERFACE m_axi port = a bundle = gmem0
-    #pragma HLS INTERFACE m_axi port = b bundle = gmem1
-    #pragma HLS INTERFACE m_axi port = c bundle = gmem2
+void krnl(
+            hls::stream<int> &a, 
+            hls::stream<int> &b, 
+            hls::stream<int> &c) {
+    #pragma HLS INTERFACE axis port = a
+    #pragma HLS INTERFACE axis port = b 
+    #pragma HLS INTERFACE axis port = c 
 
-    for (int i = 0; i < DATA_SIZE; i++) {
-        #pragma HLS UNROLL //factor=2
-        c[i] = a[i] + b[i];
-    }
+    // for (int i = 0; i < DATA_SIZE; i++) {
+    //     #pragma HLS UNROLL //factor=2
+    //     c[i] = a[i] + b[i];
+    // }
+
+    int aT, bT, cT; 
+
+    a.read(aT);
+    b.read(bT);
+    c.write(aT + bT);
+
 
 }

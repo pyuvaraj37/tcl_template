@@ -1,16 +1,22 @@
 #include "krnl.hpp"
 #include <iostream>
+#include "hls_stream.h"
 
 int main() {
 
-    int n = 2; 
-    int a[n] = {1, 1}; 
-    int b[n] = {1, 1};
-    int c[n];
+    int a = 1; 
+    int b = 1;
+    int c;
 
-    krnl(a, b, c);
+    hls::stream<int> aS;
+    hls::stream<int> bS;
+    hls::stream<int> cS;
 
-    std::cout << "C  = " << c[0] << std::endl; 
-    std::cout << "C  = " << c[1] << std::endl; 
+    aS.write(a);
+    bS.write(b);
+    krnl(aS, bS, cS);
+    cS.read(c);
+
+    std::cout << "C  = " << c << std::endl; 
 
 }
