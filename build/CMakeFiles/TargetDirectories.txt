@@ -1,8 +1,0 @@
-/home/pyuvaraj/tcl_template/build/src/CMakeFiles/installip.krnl.dir
-/home/pyuvaraj/tcl_template/build/src/CMakeFiles/installip.dir
-/home/pyuvaraj/tcl_template/build/src/CMakeFiles/ip.krnl.dir
-/home/pyuvaraj/tcl_template/build/src/CMakeFiles/csim.krnl.dir
-/home/pyuvaraj/tcl_template/build/src/CMakeFiles/csim.dir
-/home/pyuvaraj/tcl_template/build/src/CMakeFiles/synthesis.krnl.dir
-/home/pyuvaraj/tcl_template/build/src/CMakeFiles/ip.dir
-/home/pyuvaraj/tcl_template/build/src/CMakeFiles/synthesis.dir
