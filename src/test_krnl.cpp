@@ -1,5 +1,6 @@
 #include "krnl.hpp"
 #include <iostream>
+#include "hls_stream.h"
 
 
 
