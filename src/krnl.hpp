@@ -7,7 +7,6 @@
 #include <ap_int.h>
 #include <ap_fixed.h>
 #include "ap_axi_sdata.h"
-//#include "communication.hpp"
 
 
 #define DATA_SIZE 2
