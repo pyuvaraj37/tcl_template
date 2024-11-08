@@ -215,18 +215,14 @@ void test_krnl(
     //Incoming 
     hls::stream<pkt64>& s_axis_update,
 
+    //Book keeping
+    int myBoardNum,
+
+    int RDMA_TYPE, 
+    int exec,
+
     //Local HBM
     int *network_ptr
-
-    //Hash-Table
-    hls::stream<htLookupReq>& lup_request,
-    //look-up resp
-    //update req
-    //update resp
-
-
-    //Book keeping
-    int myBoardNum
 ) {
 
     #pragma HLS INTERFACE axis port = m_axis_tx_meta
@@ -249,9 +245,8 @@ void test_krnl(
     #pragma HLS DATAFLOW
 
 
+    //TODO: Your kernel here
 
     
     return; 
 }
-
-

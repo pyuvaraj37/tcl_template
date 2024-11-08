@@ -37,20 +37,12 @@ int main() {
 
     hls::stream<pkt64> m_axis_update;
 
+    //Set up inital state
+
     //Test HBM
     network_ptr[0] = exec;
 
-
-    //Test BRAM
-    pkt512 bram_data;
-    bram_data.data = exec;
-    m_axis_bram_read_data.write(bram_data);
-
-    //Test Write-Through
-    pkt64 wt_data;
-    wt_data.data = exec; 
-    m_axis_update.write(wt_data);
-
+    //Run kernel
     test_krnl(
         s_axis_tx_meta,
         s_axis_tx_data,
@@ -66,4 +58,5 @@ int main() {
         network_ptr
     );
 
+    //TODO: Check results
 }
