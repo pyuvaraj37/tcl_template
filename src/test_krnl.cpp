@@ -23,7 +23,7 @@ int main() {
 
 
     //Run kernel
-    test_krnl(
+    krnl(
         s_axis_tx_meta,
         s_axis_tx_data,
         m_axis_tx_status,

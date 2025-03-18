@@ -64,7 +64,7 @@ struct htUpdateResp
 };
 
 
-void test_krnl(
+void krnl(
     hls::stream<pkt256>& m_axis_tx_meta,
     hls::stream<pkt64>& m_axis_tx_data,
     hls::stream<pkt64>& s_axis_tx_status,

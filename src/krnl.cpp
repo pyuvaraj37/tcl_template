@@ -200,7 +200,7 @@ void rdma_bram_write(
 }
 
 
-void test_krnl(
+void krnl(
     //Outgoing RDMA
     hls::stream<pkt256>& m_axis_tx_meta,
     hls::stream<pkt64>& m_axis_tx_data,
@@ -241,6 +241,14 @@ void test_krnl(
     if (!s_axis_tx_status.empty()) {
         s_axis_tx_status.read(status);
     }
+    m_axis_tx_meta.empty();
+    m_axis_tx_data.empty();
+    s_axis_tx_status.empty();
+    m_axis_bram_write_cmd.empty();
+    m_axis_bram_read_cmd.empty();
+    m_axis_bram_write_data.empty();
+    s_axis_bram_read_data.empty();
+    s_axis_update.empty();
 
     #pragma HLS DATAFLOW
 
