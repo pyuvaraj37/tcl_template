@@ -56,11 +56,11 @@ XF_PROJ_ROOT = $(shell readlink -f $(COMMON_REPO))
 
 TARGET := hw
 HOST_ARCH := x86
-SYSROOT := 
+SYSROOT :=
 
 include ./utils.mk
 
-XSA := 
+XSA :=
 ifneq ($(PLATFORM), )
 XSA := $(call device2xsa, $(PLATFORM))
 endif
@@ -75,7 +75,7 @@ LAUNCH_EMULATOR = $(PACKAGE_OUT)/launch_$(TARGET).sh
 RESULT_STRING = TEST PASSED
 
 VPP := v++
-VPP_PFLAGS := 
+VPP_PFLAGS :=
 CMD_ARGS = $(BUILD_DIR)/krnl.xclbin
 SDCARD := sd_card
 
@@ -86,13 +86,13 @@ LDFLAGS += $(opencl_LDFLAGS)
 INCLUDES = ./include
 
 ########################## Checking if PLATFORM in whitelist #######################
-PLATFORM_BLOCKLIST += nodma 
+PLATFORM_BLOCKLIST += nodma
 ############################## Setting up Host Variables ##############################
 #Include Required Host Source Files
-HOST_SRCS += ./host.cpp 
+HOST_SRCS += ./host.cpp
 # Host compiler global settings
 CXXFLAGS += -fmessage-length=0 -I$(INCLUDES)
-LDFLAGS += -lrt -lstdc++ 
+LDFLAGS += -lrt -lstdc++
 
 ifneq ($(HOST_ARCH), x86)
 	LDFLAGS += --sysroot=$(SYSROOT)
@@ -192,8 +192,8 @@ endif
 ############################## Cleaning Rules ##############################
 # Cleaning stuff
 clean:
-	-$(RMDIR) $(EXECUTABLE) $(XCLBIN)/{*sw_emu*,*hw_emu*} 
-	-$(RMDIR) profile_* TempConfig system_estimate.xtxt *.rpt *.csv 
+	-$(RMDIR) $(EXECUTABLE) $(XCLBIN)/{*sw_emu*,*hw_emu*}
+	-$(RMDIR) profile_* TempConfig system_estimate.xtxt *.rpt *.csv
 	-$(RMDIR) src/*.ll *v++* .Xil emconfig.json dltmp* xmltmp* *.log *.jou *.wcfg *.wdb
 
 cleanall: clean

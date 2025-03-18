@@ -17,7 +17,7 @@ ifeq ($(DEBUG), yes)
 VPP_LDFLAGS += --dk list_ports
 endif
 
-#Setting PLATFORM 
+#Setting PLATFORM
 ifeq ($(PLATFORM),)
 ifneq ($(DEVICE),)
 $(warning WARNING: DEVICE is deprecated in make command. Please use PLATFORM instead)

@@ -14,9 +14,9 @@ set(CLOCK_PERIOD 300.000000MHz CACHE STRING "Target clock period in nanoseconds"
 
 # Installation directory
 if (DEFINED ENV{IPREPO_DIR})
-   set(IPREPO_DIR $ENV{IPREPO_DIR})
+    set(IPREPO_DIR $ENV{IPREPO_DIR})
 elseif(NOT  IPREPO_DIR)
-   set(IPREPO_DIR ${CMAKE_CURRENT_SOURCE_DIR}/iprepo/)
+    set(IPREPO_DIR ${CMAKE_CURRENT_SOURCE_DIR}/iprepo/)
 endif()
 
 
@@ -26,7 +26,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/make.tcl.in make.tcl)
 
 
 set(EXAMPLE_HLS_DEPENDS
-    ${CMAKE_CURRENT_SOURCE_DIR}/krnl.cpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/krnl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/krnl.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/test_krnl.cpp)
 
@@ -35,14 +35,14 @@ set(EXAMPLE_HLS_DEPENDS
 set(HLS_TARGETS synthesis csim ip installip)
 
 foreach (target ${HLS_TARGETS})
-   if (NOT TARGET ${target})
-      add_custom_target(${target})
-   endif()
+    if (NOT TARGET ${target})
+        add_custom_target(${target})
+    endif()
 
-   add_custom_target(${target}.${PROJECT_NAME}
-      COMMAND ${VITIS_HLS_BINARY} -f make.tcl -tclargs ${target}
-      DEPENDS ${EXAMPLE_HLS_DEPENDS})
-   add_dependencies(${target} ${target}.${PROJECT_NAME})
+    add_custom_target(${target}.${PROJECT_NAME}
+        COMMAND ${VITIS_HLS_BINARY} -f make.tcl -tclargs ${target}
+        DEPENDS ${EXAMPLE_HLS_DEPENDS})
+    add_dependencies(${target} ${target}.${PROJECT_NAME})
 endforeach()
 
 #target dependencies
