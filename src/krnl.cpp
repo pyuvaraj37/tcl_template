@@ -236,6 +236,10 @@ void krnl(
 
     #pragma HLS INTERFACE axis port = s_axis_update
 
+    #pragma HLS INTERFACE s_axilite port = myBoardNum
+    #pragma HLS INTERFACE s_axilite port = RDMA_TYPE
+    #pragma HLS INTERFACE s_axilite port = exec
+    #pragma HLS INTERFACE m_axi port = network_ptr
 
     pkt64 status;
     if (!s_axis_tx_status.empty()) {
