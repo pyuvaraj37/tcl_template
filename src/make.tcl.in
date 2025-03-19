@@ -25,16 +25,16 @@ add_files -tb ${CMAKE_CURRENT_SOURCE_DIR}/test_krnl.cpp -cflags "-I${CMAKE_CURRE
 set command [lindex $argv 2]
 
 if {$command == "synthesis"} {
-   csynth_design
+    csynth_design
 } elseif {$command == "csim"} {
-   csim_design 
+    csim_design
 } elseif {$command == "ip"} {
-   export_design -format xo
+    export_design -format xo
 } elseif {$command == "installip"} {
-   file mkdir ${IPREPO_DIR}
-   file copy -force ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_prj/solution1/impl/export.xo ${IPREPO_DIR}/${PROJECT_NAME}.xo
+    file mkdir ${IPREPO_DIR}
+    file copy -force ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_prj/solution1/impl/export.xo ${IPREPO_DIR}/${PROJECT_NAME}.xo
 }  else {
-   puts "No valid command specified. Use vivado_hls -f make.tcl <synthesis|csim|ip|installip> ."
+    puts "No valid command specified. Use vivado_hls -f make.tcl <synthesis|csim|ip|installip> ."
 }
 
 
