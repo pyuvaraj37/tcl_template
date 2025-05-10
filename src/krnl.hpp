@@ -1,9 +1,10 @@
-#pragma once
-#include "hls_stream.h"
-#define DATA_SIZE 2
+// This is a C++ header file for a kernel function that performs some operations on arrays.
+
 typedef int data_t;
 
-void krnl(
-            hls::stream<int> &a, 
-            hls::stream<int> &b, 
-            hls::stream<int> &c);
+extern "C" void krnl_top(
+            data_t* a, 
+            data_t* b,
+            data_t* c,
+            int size
+        );

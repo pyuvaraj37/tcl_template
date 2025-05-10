@@ -3,20 +3,29 @@
 #include "hls_stream.h"
 
 int main() {
+    int DATA_SIZE = 64;
+    
+    data_t a[DATA_SIZE];
+    data_t b[DATA_SIZE];
+    data_t c[DATA_SIZE];
 
-    int a = 1; 
-    int b = 1;
-    int c;
+    // Initialize input arrays
+    for (int i = 0; i < DATA_SIZE; i++) {
+        a[i] = i * 2; // Static values: even numbers
+        b[i] = i * 3; // Static values: multiples of 3
+    }
+    // Call the kernel function
+    krnl_top(a, b, c, DATA_SIZE);
 
-    hls::stream<int> aS;
-    hls::stream<int> bS;
-    hls::stream<int> cS;
-
-    aS.write(a);
-    bS.write(b);
-    krnl(aS, bS, cS);
-    cS.read(c);
-
-    std::cout << "C  = " << c << std::endl; 
-
+    // Verify the output
+    for (int i = 0; i < DATA_SIZE; i++) {
+        if (c[i] != a[i] + b[i]) {
+            std::cout << "Error at index " << i << ": expected " << a[i] + b[i] << ", got " << c[i] << std::endl;
+            return 1;
+        } else {
+            std::cout << "Test passed for index " << i << ": " << c[i] << std::endl;
+        }
+    }
+    std::cout << "All tests passed!" << std::endl;
+    return 0;
 }
