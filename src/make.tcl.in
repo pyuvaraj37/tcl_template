@@ -28,6 +28,8 @@ if {$command == "synthesis"} {
    csynth_design
 } elseif {$command == "csim"} {
    csim_design 
+} elseif {$command == "cosim"} {
+   cosim_design
 } elseif {$command == "ip"} {
    export_design -format xo
 } elseif {$command == "installip"} {

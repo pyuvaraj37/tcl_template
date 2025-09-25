@@ -3,8 +3,7 @@
 
 typedef int data_t; 
 
-const int DATA_SIZE = 1;
-
+const int DATA_SIZE = 64;
 
 int main(int argc, char** argv) {
 
@@ -80,6 +79,7 @@ int main(int argc, char** argv) {
     OCL_CHECK(err, err = krnl1.setArg(0, buffer_a));
     OCL_CHECK(err, err = krnl1.setArg(1, buffer_b));
     OCL_CHECK(err, err = krnl1.setArg(2, buffer_c));
+    OCL_CHECK(err, err = krnl1.setArg(3, DATA_SIZE));
 
 
     /*====================================================KERNEL===============================================================*/
